@@ -59,7 +59,7 @@ BOARD_KERNEL_CMDLINE += skip_override androidboot.fastboot=1
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
 
-TARGET_PREBUILT_KERNEL := device/htc/ocla1/prebuilt/Image.gz-dtb
+TARGET_PREBUILT_KERNEL := device/htc/ocluhl/prebuilt/Image.gz-dtb
 
 # Platform
 TARGET_BOARD_PLATFORM := sdm660
@@ -134,8 +134,8 @@ PLATFORM_VERSION := 9
 PLATFORM_SECURITY_PATCH := 2025-12-31
 TW_INCLUDE_CRYPTO := true
 TW_INCLUDE_CRYPTO_FBE := true
-#TW_CRYPTO_USE_SYSTEM_VOLD := hwservicemanager servicemanager qseecomd keymaster-3-0
-#TW_CRYPTO_SYSTEM_VOLD_MOUNT := vendor
+TW_CRYPTO_USE_SYSTEM_VOLD := hwservicemanager servicemanager qseecomd keymaster-3-0
+TW_CRYPTO_SYSTEM_VOLD_MOUNT := vendor
 
 ## additional twrp flags ##
 TW_EXCLUDE_TWRPAPP := true
