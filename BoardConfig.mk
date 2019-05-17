@@ -141,7 +141,7 @@ TW_CRYPTO_SYSTEM_VOLD_MOUNT := vendor
 TW_EXCLUDE_TWRPAPP := true
 TW_INCLUDE_REPACKTOOLS := true
 USE_RECOVERY_INSTALLER := true
-RECOVERY_INSTALLER_PATH := device/htc/ocla1/installer
+RECOVERY_INSTALLER_PATH := device/htc/ocluhl/installer
 TW_HAS_EDL_MODE := true
 
 # TWRP Debug Flags
