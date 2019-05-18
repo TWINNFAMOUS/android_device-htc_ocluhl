@@ -27,10 +27,6 @@
 
 import /init.recovery.qcom_decrypt.rc
 
-on init
-    export ANDROID_ROOT /system_root
-    start boot-1-0
-
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
