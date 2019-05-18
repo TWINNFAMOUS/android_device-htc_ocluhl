@@ -2,8 +2,8 @@ on early-init
     wait /dev/block/bootdevice
     start patchlevel
 
-on init
-    start sbinqseecomd
+on property:crypto.ready=1
+start sbinqseecomd
 
 on property:init.svc.sbinqseecomd=running && property:sys.listeners.registered=true
     start sbinhwservicemanager
