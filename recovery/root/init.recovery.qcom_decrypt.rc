@@ -1,6 +1,9 @@
 on early-init
-    wait /dev/block/bootdevice
     start patchlevel
+
+on init
+    export ANDROID_ROOT /system_root
+    start boot-1-0
 
 on property:crypto.ready=1
 start sbinqseecomd
