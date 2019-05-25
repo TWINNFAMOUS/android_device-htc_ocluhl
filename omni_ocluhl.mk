@@ -22,6 +22,9 @@ $(call inherit-product, build/target/product/embedded.mk)
 # Inherit from our custom product configuration
 $(call inherit-product, vendor/omni/config/common.mk)
 
+# Inherit from hardware-specific part of the product configuration
+#$(call inherit-product, device/htc/ocluhl/device.mk)
+
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := ocluhl
 PRODUCT_NAME := omni_ocluhl

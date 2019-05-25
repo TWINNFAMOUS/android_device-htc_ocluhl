@@ -93,9 +93,13 @@ BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 
+# Partitions (listed in the file) to be wiped under recovery.
+TARGET_RECOVERY_WIPE := device/htc/ocluhl/recovery.wipe
+TARGET_RECOVERY_FSTAB := device/htc/ocluhl/recovery.fstab
+
 # TWRP specific build flags
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.0/lun.%d/file
-TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
+TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel0-backlight/brightness"
 TW_EXCLUDE_DEFAULT_USB_INIT := true
 TW_EXTRA_LANGUAGES := true
 TW_INCLUDE_NTFS_3G := true
@@ -134,8 +138,8 @@ PLATFORM_VERSION := 9
 PLATFORM_SECURITY_PATCH := 2025-12-31
 TW_INCLUDE_CRYPTO := true
 TW_INCLUDE_CRYPTO_FBE := true
-TW_CRYPTO_USE_SYSTEM_VOLD := hwservicemanager servicemanager qseecomd keymaster-3-0
-TW_CRYPTO_SYSTEM_VOLD_MOUNT := vendor
+#TW_CRYPTO_USE_SYSTEM_VOLD := hwservicemanager servicemanager qseecomd keymaster-3-0
+#TW_CRYPTO_SYSTEM_VOLD_MOUNT := vendor
 
 ## additional twrp flags ##
 TW_EXCLUDE_TWRPAPP := true
