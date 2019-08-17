@@ -31,11 +31,11 @@ extract() {
 	unzip -o "$1" -d "$2" || abort "Failed to extract zip to $2!"
 }
 
-print "#########################################"
-print "#  TWRP installer for HTC ocla1_sprout  #"
-print "#            by TWINNFAMOUS             #"
-print "#########################################"
-print
+print "########################################"
+print "#     TWRP installer for  htc_ ocluhl  #"
+print "#            by TWINNFAMOUS            #"
+print "# credits to @mauronofrio for this     #"
+print "########################################"
 
 # unpack the installer
 [ "$zip" ] && {

@@ -23,7 +23,7 @@ $(call inherit-product, build/target/product/embedded.mk)
 $(call inherit-product, vendor/omni/config/common.mk)
 
 # Inherit from hardware-specific part of the product configuration
-#$(call inherit-product, device/htc/ocluhl/device.mk)
+$(call inherit-product, device/htc/ocluhl/device.mk)
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := ocluhl
@@ -33,6 +33,6 @@ PRODUCT_MODEL := HTC U11 life
 PRODUCT_MANUFACTURER := HTC	
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_NAME=ocluhl \
+    PRODUCT_NAME=ocla1_sprout_00401 \
 	BUILD_PRODUCT=htc_ocla1_sprout \
     TARGET_DEVICE=htc_ocla1_sprout

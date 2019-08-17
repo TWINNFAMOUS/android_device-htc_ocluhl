@@ -117,6 +117,7 @@ on boot
     write /sys/devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-02/c440000.qcom,spmi:qcom,pmi8998@2:qcom,qpnp-smb2/power_supply/usb/otg_switch 1
 
 on init
+    export ANDROID_ROOT /system_root
     start logd
     start hwservicemanager
     start boot-1-0
@@ -126,7 +127,7 @@ on init
 
 on property:crypto.ready=0
     stop sbinqseecomd
-    stop keymaster-4-0
+    stop keymaster-3-0
     stop gatekeeper-1-0
     stop servicemanager
 
@@ -134,7 +135,7 @@ on property:crypto.ready=1
     start sbinqseecomd
 
 on property:vendor.sys.listeners.registered=true
-    start keymaster-4-0
+    start keymaster-3-0
     start gatekeeper-1-0
     start servicemanager
     restart time_daemon
