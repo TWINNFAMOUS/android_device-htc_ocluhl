@@ -53,9 +53,9 @@ TARGET_NO_BOOTLOADER := true
 TARGET_USES_UEFI := true
 
 # Kernel
-BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200,n8 androidboot.console=ttyMSM0 user_debug=31 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 sched_enable_hmp=1 sched_enable_power_aware=1 service_locator.enable=1 swiotlb=1 androidboot.configfs=true androidboot.usbcontroller=a800000.dwc3 androidboot.hardware=qcom androidkey.dummy=1 buildvariant=eng
+BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200,n8 androidboot.console=ttyMSM0 user_debug=31 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 sched_enable_hmp=1 sched_enable_power_aware=1 service_locator.enable=1 swiotlb=1 androidboot.configfs=true androidboot.usbcontroller=a800000.dwc3 androidboot.hardware=htc_ocl androidkey.dummy=1 buildvariant=eng 
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
-BOARD_KERNEL_CMDLINE += androidboot.fastboot=1
+#BOARD_KERNEL_CMDLINE += androidboot.fastboot=1
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
 
@@ -73,7 +73,7 @@ BOARD_RECOVERYIMAGE_PARTITION_SIZE := 67108864
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 3938451456
 BOARD_SYSTEMIMAGE_JOURNAL_SIZE := 0
 BOARD_SYSTEMIMAGE_EXTFS_INODE_COUNT := 4096
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 0x54C000000
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 16719544320
 BOARD_VENDORIMAGE_PARTITION_SIZE := 1073741824
 BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_USERIMAGES_USE_EXT4 := true
@@ -101,7 +101,7 @@ TARGET_RECOVERY_FSTAB := device/htc/ocluhl/recovery.fstab
 
 # TWRP specific build flags
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.0/lun.%d/file
-TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel0-backlight/brightness"
+TW_BRIGHTNESS_PATH := "/sys/devices/platform/soc/a88000.i2c/i2c-0/0-002c/backlight/lcd-bl/brightness"
 TW_EXCLUDE_DEFAULT_USB_INIT := true
 TW_EXTRA_LANGUAGES := true
 TW_INCLUDE_NTFS_3G := true
@@ -111,7 +111,7 @@ TW_HAS_DOWNLOAD_MODE := true
 TW_THEME := portrait_hdpi
 TW_NO_EXFAT_FUSE := true
 TARGET_RECOVERY_DEVICE_MODULES := chargeled tzdata
-TARGET_RECOVERY_DEVICE_MODULES += android.hardware.boot@1.0 hwservicemanager servicemanager libxml2 libicuuc android.hidl.base@1.0 bootctrl.$(TARGET_BOARD_PLATFORM) update_engine_sideload
+TARGET_RECOVERY_DEVICE_MODULES += android.hardware.boot@1.0 hwservicemanager servicemanager libxml2 libicuuc android.hidl.base@1.0 #bootctrl.$(TARGET_BOARD_PLATFORM) update_engine_sideload
 TW_RECOVERY_ADDITIONAL_RELINK_FILES += $(TARGET_OUT)/lib64/android.hardware.boot@1.0.so $(TARGET_OUT)/usr/share/zoneinfo/tzdata $(TARGET_OUT)/bin/hwservicemanager $(TARGET_OUT)/bin/servicemanager $(TARGET_OUT)/lib64/libxml2.so $(TARGET_OUT)/lib64/libicuuc.so $(TARGET_OUT)/lib64/android.hidl.base@1.0.so
 TARGET_RECOVERY_PIXEL_FORMAT := BGRA_8888
 TARGET_RECOVERY_QCOM_RTC_FIX := true

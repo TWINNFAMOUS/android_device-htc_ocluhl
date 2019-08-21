@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2015, 2017, The Linux Foundation. All rights reserved.
+# Copyright (c) 2012-2015, 2017-2018, The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -26,7 +26,7 @@
 #
 
 # the DIAG device node is not world writable/readable.
-/dev/diag                 0660   system     oem_2901
+#/dev/diag                 0660   system     oem_2901  # comment out by HTC
 
 /dev/genlock              0666   system     system
 /dev/wlan                 0660   wifi       wifi
@@ -109,9 +109,9 @@
 /dev/hsicctl14            0640   radio      radio
 /dev/hsicctl15            0640   radio      radio
 /dev/hsicctl16            0640   radio      radio
-/dev/mhi_pipe_14          0640   radio      radio
-/dev/mhi_pipe_16          0640   radio      radio
-/dev/mhi_pipe_32          0640   radio      radio
+/dev/mhi_*_pipe_14        0640   radio      radio
+/dev/mhi_*_pipe_16        0640   radio      radio
+/dev/mhi_*_pipe_32        0640   radio      radio
 /dev/at_usb0              0640   radio      radio
 /dev/at_mdm0              0640   radio      radio
 /dev/video*               0660   system     camera
@@ -127,15 +127,22 @@
 /dev/sp_kernel            0660   system     system
 /dev/sp_ssr               0660   system     system
 /dev/sp_keymaster         0660   system     system
+/dev/sec_nvm_*            0660   system     system
 /dev/cryptoapp            0660   system     system
+/dev/spdaemon_ssr         0660   system     system
 /dev/gemini0              0660   system     camera
 /dev/jpeg0                0660   system     camera
 /dev/jpeg1                0660   system     camera
 /dev/jpeg2                0660   system     camera
 /dev/jpeg3                0660   system     camera
 /dev/adsprpc-smd          0664   system     system
+/dev/adsprpc-smd-secure   0644   system     system
 /dev/system_health_monitor 0644  radio      system
 /dev/mdss_rotator         0664   system     system
+
+#QDSS
+/dev/byte-cntr            0660   system    oem_2902
+
 # wlan
 /dev/wcnss_wlan           0660   system     system
 /dev/wcnss_ctrl           0660   system     system
@@ -203,7 +210,12 @@
 /dev/tsc_mux0             0660   media       media
 /dev/tsc_ci0              0660   media       media
 
+# Trustonic TEE
+/dev/mobicore             0600   system    system
+/dev/mobicore-user        0666   system    system
+
 # sensors
+/dev/sensors              0660   system     system
 /sys/devices/i2c-12/12-*  pollrate_ms 0664 system system
 /sys/devices/f9925000.i2c/i2c-0/0-*                 enable         0660    input    system
 /sys/devices/f9925000.i2c/i2c-0/0-*                 poll_delay     0660    input    system
@@ -283,6 +295,12 @@
 # Fingerprint device
 /dev/qbt1000              0660   system     system
 
+# fpc fingerprint
+/sys/devices/soc/soc:fp_fpc*        irq               0600  system system
+/sys/devices/soc/soc:fp_fpc*        wakeup_enable     0200  system system
+/sys/devices/soc/soc:fp_fpc*        hal_footprint     0200  system system
+/sys/devices/soc/soc:fp_fpc*        fp_charger_control     0200  system system
+
 #ImproveTouch device
 /dev/hbtp_input           0660   system     system
 /dev/hbtp_vm              0660   system     system
@@ -296,5 +314,9 @@
 /dev/block/platform/soc/1d84000.ufshc/by-name/frp       0600   system     system
 /dev/block/platform/soc/7c4000.sdhci/by-name/frp        0600   system     system
 
+# This is temporary while using SD card for initial bring-up
+/dev/block/platform/soc/8804000.sdhci/by-name/frp       0600   system     system
+
 # Kmsg device
 /dev/kmsg                                               0620   root       system
+
